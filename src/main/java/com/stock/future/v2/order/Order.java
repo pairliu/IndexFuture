@@ -9,14 +9,6 @@ public class Order {
     private Date _openTime;
     private Date _closeTime;
 
-    public Date get_closeTime() {
-        return _closeTime;
-    }
-
-    public void set_closeTime(Date _closeTime) {
-        this._closeTime = _closeTime;
-    }
-
     public Order() {}
     
     public Order(final double openIndex) {
@@ -54,8 +46,17 @@ public class Order {
         return _openTime;
     }
 
-    public Order setOpenTime(Date openTime) {
+    public Order setOpenTime(final Date openTime) {
         _openTime = openTime;
+        return this;
+    }
+
+    public Date getCloseTime() {
+        return _closeTime;
+    }
+
+    public Order setCloseTime(final Date closeTime) {
+        _closeTime = closeTime;
         return this;
     }
 }

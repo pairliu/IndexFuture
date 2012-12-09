@@ -10,15 +10,6 @@ import org.apache.log4j.Logger;
 public class OrderManager {
     private static Logger LOG = Logger.getLogger( OrderManager.class );
     
-    private Order _currOrder;
-    
-    public Order getCurrOrder() {
-        return _currOrder;
-    }
-    public void setCurrOrder(final Order currOrder) {
-        _currOrder = currOrder;
-    }
-
     private OrderStatus orderStatus = OrderStatus.NONE;
     
     private double orderIndex;    
