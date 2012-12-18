@@ -1,6 +1,6 @@
 package com.stock.future.v2;
 
-public class InitState implements State {
+public class InitState extends AbstractState {
     private Main main;
     
     public InitState( Main main ) {

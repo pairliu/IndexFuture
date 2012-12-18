@@ -2,18 +2,22 @@ package com.stock.future.v2;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
 
 import com.stock.future.FileIndexRetriever;
 import com.stock.future.IndexRetriever;
 
 public class Main {
+    private static Logger LOG = Logger.getLogger( Main.class );
+    
     public static final int THRESHOLD = 3;
     
     private static double openIndex;
     private static double currentIndex;
     private static double highIndex;
     private static double lowIndex;
+    private static double lastIndex; //for closeOrderAnyway at the end of the program
     
     //The important parameter (0.2% for test)
     private static double fluctuate = 0.003;
@@ -49,6 +53,13 @@ public class Main {
             
             //To terminate the loop. Just for test.
             if ( currentIndex < 1 ) {
+                if (currState.getOrderManager().isOrderOpened()) {
+                    currState.getOrderManager().closeOrder(lastIndex);
+                    LOG.info("Close order anyway at index: " + lastIndex);
+                }
+                
+                double total = currState.getOrderManager().calculateTotalProfit();
+                LOG.info("Total profit is: " + total);
                 break;
             }
             
@@ -60,6 +71,7 @@ public class Main {
             //The highIndex and lowIndex should be updated at the end of one loop, 
             //or there will some conditions invalid
             updateHighLowIndex( currentIndex );
+            lastIndex = currentIndex;
             
 //            TimeUnit.MILLISECONDS.sleep(100);
         }

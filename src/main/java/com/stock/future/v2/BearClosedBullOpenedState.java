@@ -1,6 +1,6 @@
 package com.stock.future.v2;
 
-public class BearClosedBullOpenedState implements State {
+public class BearClosedBullOpenedState extends AbstractState {
     private Main main;
 
     public BearClosedBullOpenedState(Main main) {
@@ -8,8 +8,10 @@ public class BearClosedBullOpenedState implements State {
     }
 
     public void execute(double open, double curr, double hi, double lo, double fluc) {
-        if (curr < ( 1 - fluc ) * manager.getOrderIndex()) {
-            manager.closeBullOrder( curr );
+//        if (curr < ( 1 - fluc ) * manager.getOrderIndex()) {
+        if (curr < ( 1 - fluc ) * manager.getCurrOrder().getOpenIndex()) {
+//            manager.closeBullOrder( curr );
+            manager.closeOrder( curr );
             manager.openBearOrder( curr );
             main.setCurrState( main.getBearOpenedState() );
         }

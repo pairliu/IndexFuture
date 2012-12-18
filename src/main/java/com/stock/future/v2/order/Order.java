@@ -2,12 +2,22 @@ package com.stock.future.v2.order;
 
 import java.util.Date;
 
-public class Order {
+public abstract class Order {
     private double _openIndex;
     private double _closeIndex;
-    private OrderStatus _orderStatus;
+    private Status _orderStatus;
     private Date _openTime;
     private Date _closeTime;
+    //In stock, "lot" is the term to represent the unit in one transaction.
+    //However, not sure if it is suitable for Index Future. 
+    //So use "unit" as the term.
+    private int units;
+
+    public static enum Status {
+        NONE,
+        OPEN,
+        CLOSE
+    }
 
     public Order() {}
     
@@ -33,11 +43,11 @@ public class Order {
         return this;
     }
     
-    public OrderStatus getOrderStatus() {
+    public Status getOrderStatus() {
         return _orderStatus;
     }
     
-    public Order setOrderStatus(final OrderStatus orderStatus) {
+    public Order setOrderStatus(final Status orderStatus) {
         _orderStatus = orderStatus;
         return this;
     }
@@ -59,4 +69,14 @@ public class Order {
         _closeTime = closeTime;
         return this;
     }
+    
+    public int getUnits() {
+        return units;
+    }
+
+    public void setUnits(int units) {
+        this.units = units;
+    }
+    
+    public abstract double calculateProfit();
 }

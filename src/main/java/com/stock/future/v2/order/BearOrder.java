@@ -11,4 +11,9 @@ public class BearOrder extends Order {
         super(openIndex);
     }
 
+    @Override
+    public double calculateProfit() {
+        return getUnits() * (getOpenIndex() - getCloseIndex());
+    }
+
 }

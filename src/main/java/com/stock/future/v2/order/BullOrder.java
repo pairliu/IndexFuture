@@ -10,5 +10,10 @@ public class BullOrder extends Order {
     public BullOrder(final double openIndex) {
         super(openIndex);
     }
+    
+    @Override
+    public double calculateProfit() {
+        return getUnits() * (getCloseIndex() - getOpenIndex());
+    }
 
 }

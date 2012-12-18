@@ -1,6 +1,6 @@
 package com.stock.future.v2;
 
-public class BearClosedNoOrderState implements State {
+public class BearClosedNoOrderState extends AbstractState {
     private Main main;
 
     public BearClosedNoOrderState(Main main) {

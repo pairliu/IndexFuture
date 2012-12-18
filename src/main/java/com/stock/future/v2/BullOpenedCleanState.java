@@ -1,7 +1,7 @@
 package com.stock.future.v2;
 
 
-public class BullOpenedCleanState implements State {
+public class BullOpenedCleanState extends AbstractState {
     private Main main;
     
     public BullOpenedCleanState( Main main ) {
@@ -10,7 +10,8 @@ public class BullOpenedCleanState implements State {
 
     public void execute( double open, double curr, double hi, double lo, double fluc ) {
         if ( curr < ( 1 - fluc ) * hi ) {
-            manager.closeBullOrder( curr );
+//            manager.closeBullOrder( curr );
+            manager.closeOrder(curr);
             
             if (hi > open * (1 + 2 * fluc) ) {
                 manager.openBearOrder( curr );
