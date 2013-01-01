@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.stock.future.v2.order.Order.Status;
 
 public class OrderManagerMemoryImpl extends AbstractOrderManager {
-    private static Logger LOG = Logger.getLogger( OrderManagerMemoryImpl.class );
+    private static Logger LOG = LoggerFactory.getLogger( OrderManagerMemoryImpl.class );
     
     private Collection<Order> orders = new ArrayList<Order>();
     

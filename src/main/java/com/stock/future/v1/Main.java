@@ -2,7 +2,8 @@ package com.stock.future.v1;
 
 import java.util.Calendar;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.stock.future.FileIndexRetriever;
 import com.stock.future.IndexRetriever;
@@ -10,7 +11,7 @@ import com.stock.future.IndexRetriever;
 //Make it as a service? Start to run at 9:15? No need. Just run it every day.
 //Basically it is just need to know the last status and the current condition
 public class Main {
-    private static Logger LOG = Logger.getLogger( Main.class );
+    private static Logger LOG = LoggerFactory.getLogger( Main.class );
     
     private static double openIndex;
     private static double currentIndex;

@@ -3,12 +3,13 @@ package com.stock.future.v2.order;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.stock.future.v2.order.Order.Status;
 
 public abstract class AbstractOrderManager implements OrderManager {
-    private static Logger LOG = Logger.getLogger( AbstractOrderManager.class );
+    private static Logger LOG = LoggerFactory.getLogger( AbstractOrderManager.class );
     
     private SimpleDateFormat df = new SimpleDateFormat( "yyyy.MM.dd 'at' HH:mm:ss" );
     

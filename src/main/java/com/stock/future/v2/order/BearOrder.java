@@ -1,9 +1,10 @@
 package com.stock.future.v2.order;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BearOrder extends Order {
-    private static Logger LOG = Logger.getLogger( BearOrder.class );
+    private static Logger LOG = LoggerFactory.getLogger( BearOrder.class );
     
     public BearOrder() {}
     

@@ -3,11 +3,12 @@ package com.stock.future.v1;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 //At any time there is only one order!
 public class OrderManager {
-    private static Logger LOG = Logger.getLogger( OrderManager.class );
+    private static Logger LOG = LoggerFactory.getLogger( OrderManager.class );
     private OrderStatus orderStatus = OrderStatus.NONE;
     private double orderIndex;
     
